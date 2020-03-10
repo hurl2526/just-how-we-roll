@@ -8,13 +8,9 @@ const doubleSixes = [];
 const twelves = [];
 const twenties = [];
 
-
-
-
 /*******************************************************************
  * METHOD-Y HELPER FUNCTIONS YOUR BACK-END DEV HAS WRITTEN FOR YOU *
  ******************************************************************/
-
 
 const getRandomNumber = function(max) {
   const rand = Math.random();
@@ -23,7 +19,6 @@ const getRandomNumber = function(max) {
 
   return result;
 }
-
 const sortByNumber = function(arr) {
   const byNumber = function(item1, item2) {
     return item1 - item2;
@@ -31,8 +26,6 @@ const sortByNumber = function(arr) {
 
   return arr.slice().sort(byNumber);
 }
-
-
 
 /******************
  * BUTTON QUERIES *
@@ -42,6 +35,7 @@ const doubleD6Image1 = document.querySelector("#double-d6-roll-1");
 const doubleD6Image2 = document.querySelector("#double-d6-roll-2");
 const d12Image = document.querySelector('#d12-roll');
 const d20Image = document.querySelector('#d20-roll');
+const resetButton = document.querySelector('#reset-button');
 
 /******************
  * CLICK HANDLERS *
@@ -109,7 +103,34 @@ const rollD20 = function(){
   d20MeanElementSpot.innerText = d20MeanResult;
   
 };
+ const resetPress = function(){
+sixes.splice(0);
+doubleSixes.splice(0)
+twelves.splice(0)
+twenties.splice(0)
+d6Image.src = 'images/start/d6.png';
+doubleD6Image1.src = 'images/start/d6.png';
+doubleD6Image2.src = 'images/start/d6.png';
+d12Image.src = "images/start/d12.jpeg";
+d20Image.src = "images/start/d20.jpg";
+const d6MedianElementSpot = document.querySelector('#d6-rolls-median')
+d6MedianElementSpot.innerText = ''
+const d6MeanElementSpot = document.querySelector('#d6-rolls-mean')
+d6MeanElementSpot.innerText = ''
+const double6MeanElementSpot = document.querySelector('#double-d6-rolls-mean')
+double6MeanElementSpot.innerText = ''
+const double6MedianElementSpot = document.querySelector('#double-d6-rolls-median')
+  double6MedianElementSpot.innerText = ''
+const d12MedianElementSpot = document.querySelector('#d12-rolls-median')
+  d12MedianElementSpot.innerText =''
+const d12MeanElementSpot = document.querySelector('#d12-rolls-mean')
+  d12MeanElementSpot.innerText = ''
+const d20MedianElementSpot = document.querySelector('#d20-rolls-median')
+  d20MedianElementSpot.innerText =''
+const d20MeanElementSpot = document.querySelector('#d20-rolls-mean')
+  d20MeanElementSpot.innerText =''
 
+ };
 
 /*******************
  * EVENT LISTENERS *
@@ -119,7 +140,7 @@ doubleD6Image1.addEventListener('click', rollD6Twice);
 doubleD6Image2.addEventListener('click', rollD6Twice);
 d12Image.addEventListener('click', rollD12);
 d20Image.addEventListener('click', rollD20);
-
+resetButton.addEventListener('click', resetPress)
 /****************
  * MATH SECTION *
  ****************/
